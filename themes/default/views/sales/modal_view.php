@@ -443,13 +443,13 @@
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('st_invoice') ?></span>
                             </a>
-                        </div>
+                        </div>-->
                         <div class="btn-group">
                             <a href="<?= site_url('sales/print_st_invoice_2/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice_st_a5') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('invoice_st_a5') ?></span>
                             </a>
-                        </div>-->
+                        </div>
                         <div class="btn-group">
                             <a href="<?= site_url('sales/print_st_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('Invoice_Mcar') ?>">
                                 <i class="fa fa-print"></i>

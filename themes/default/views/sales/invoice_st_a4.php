@@ -14,9 +14,10 @@
 <style>
     .container {
         width: 100%;
+        min-height: 27.7cm;
         margin: 20px auto;
         padding: 10px;
-        font-size: 14px;
+        font-size: 12px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         position:relative;
     }
@@ -34,8 +35,9 @@
         }
         .container {
             width: 95% !important;
-            margin: 20px auto !important;
-            font-size: 14px;
+            height:auto !important;
+            font-size: 11px !important;
+            margin: 0 auto !important;
         }
         .customer_label {
             padding-left: 0 !important;
@@ -47,7 +49,11 @@
         .print th{
             color:white !important;
             background: #444 !important;
+        }
 
+        .noPadding tr td{
+            font-size: 12px !important;
+            margin: 0 auto !important;
         }
         .tt{
             color: #9D192B  !important;
@@ -69,6 +75,7 @@
         #note{
             max-width: 100% !important;
             margin: 0 auto !important;
+            font-size: 14px !important;
             border-radius: 5px 5px 5px 5px !important;
         }
 
@@ -99,11 +106,14 @@
     .noPadding tr{
         padding: 0px 0px;
         margin-top: 0px;
+        font-size: 13px !important;
         margin-bottom: 0px;
         border: none;
     }
-    #note h3{
-        padding-left: 10px !important;padding-bottom: 5px !important;font-size: 16px !important; color: maroon !important;
+    #note h4{
+        padding: 10px;
+        font-size: 16px ;
+        color: maroon !important;
     }
     .noPadding tr td{
         padding: 0px;
@@ -176,38 +186,29 @@
                                 </div>
                             </div>
 
-<?php //$this->erp->print_arrays($biller); ?>
+<?php //$this->erp->print_arrays($Settings); ?>
 
                             <div class="row">
-                                <div class="col-sm-7 col-xs-7 ">
+                                <div class="col-sm-12 col-xs-12 ">
                                     <table class="noPadding" border="none">
                                         <tr>
-                                            <td style="text-align: left;padding:10px; border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>
+                                            <td style="text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>
                                             <?php if(!empty($biller->address_kh)) { ?>
-                                                <td style="text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address_kh?></td>
+                                                <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address_kh?></td>
                                             <?php }else { ?>
-                                                <td style="text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address ?></td>
+                                                <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address ?></td>
                                             <?php } ?>
-
+                                            <td style="width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
+                                            <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name_kh; ?></td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: left;padding:5px;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
+                                            <td style="text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
+                                            <td style="text-align: left;padding:5px;color: #9D192B !important;">phone : <?= $customer->phone; ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
 
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-sm-5 col-xs-5 ">
-                                    <table class="noPadding" border="none">
-                                        <tr>
-                                            <td style="text-align: left;padding:5px;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
-                                            <td style="text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name_kh; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 10%; text-align: left;padding:5px;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
-                                            <td style="width: 20%; text-align: left;padding:5px;color: #9D192B !important;">phone : <?= $customer->phone; ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
                             </div>
 
                             </br>
@@ -238,6 +239,7 @@
                 $erow = 1;
                 $totalRow = 0;
                 foreach ($rows as $row) {
+                    //$this->erp->print_arrays($invs);
                     $free = lang('free');
                     $product_unit = '';
                     $total = 0;
@@ -281,10 +283,10 @@
                             <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
 
                                 <?php
-                                    if(strpos($row->discount,"%")){
-                                        echo "<small style='font-size:10px;'>(".$row->discount.")</small>" ;
-                                    }
-                                    echo $this->erp->formatMoney($row->item_discount);
+                                if(strpos($row->discount,"%")){
+                                    echo "<small style='font-size:10px;'>(".$row->discount.")</small>" ;
+                                }
+                                echo $this->erp->formatMoney($row->item_discount);
                                 ?>
                             </td>
                         <?php } ?>
@@ -292,6 +294,7 @@
                             <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
                                 <?=$this->erp->formatMoney($row->item_tax);?></td>
                         <?php } ?>
+
                         <td style="color: #9D192B !important;vertical-align: middle; text-align: right">
                             <?php
                                 if($row->subtotal==0){echo "Free";}
@@ -313,24 +316,21 @@
                 }
                 ?>
                 <?php
-                if($erow<16){
-                    $k=16 - $erow;
+                if($erow<8){
+                    $k=8 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($discount != 0) {
                             echo  '<tr class="border">
-                                    <td height="34px" style="color:#9D192B !important; text-align: center; vertical-align: middle">'.$no.'</td>
+                                    <td style="color:#9D192B !important; text-align: center; vertical-align: middle">'.$no.'</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>';
+                                    </tr>';
                         }else {
                             echo  '<tr class="border">
-                                    <td height="34px" style="color:#9D192B !important;text-align: center; vertical-align: middle">'.$no.'</td>
+                                    <td style="color:#9D192B !important;text-align: center; vertical-align: middle">'.$no.'</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -346,24 +346,29 @@
                 ?>
                 <?php
                 $row = 1;
-                $col =4;
+                $col =3;
+                $col2=3;
+                if($invs->total_discount){$col=4;$col2=3;}
+                if($invs->product_tax){$col=4;$col2=3;}
+                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=4;$col2=4;}
+                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=3;$col2=2;}
                 if ($discount != 0) {
-                    $col = 3;
+                    $col = 2;
                 }
                 if ($invs->grand_total != $invs->total) {
                     $row++;
                 }
                 if ($invs->order_discount != 0) {
                     $row++;
-                    $col =4;
+                    $col =3;
                 }
                 if ($invs->shipping != 0) {
                     $row++;
-                    $col =4;
+                    $col =3;
                 }
                 if ($invs->order_tax != 0) {
                     $row++;
-                    $col =4;
+                    $col =3;
                 }
                 if($invs->paid != 0 && $invs->deposit != 0) {
                     $row += 3;
@@ -377,7 +382,7 @@
                 <?php
                 if ($invs->grand_total != $invs->total) { ?>
                     <tr class="border-foot">
-                        <td rowspan = "<?= $row; ?>" colspan="3" style="color:#9D192B !important;border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
+                        <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="color:#9D192B !important;border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
                             <?php if (!empty($invs->invoice_footer)) { ?>
                                 <p ><strong><u style="color:#9D192B !important;">Note:</u></strong></p>
                                 <p style="color:#9D192B !important;margin-top:-5px !important; line-height: 2"><?= $invs->invoice_footer ?></p>
@@ -413,7 +418,7 @@
 
                 <tr class="border-foot">
                     <?php if ($invs->grand_total == $invs->total) { ?>
-                        <td rowspan="<?= $row; ?>" colspan="3" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
+                        <td rowspan="<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
                             <?php if (!empty($invs->invoice_footer)) { ?>
                                 <p><strong><u style="color:#9D192B !important;">Note:</u></strong></p>
                                 <p style="color:#9D192B !important;"><?= $invs->invoice_footer ?></p>
@@ -461,9 +466,9 @@
             </table>
                 <?php if(trim(htmlspecialchars_decode($invs->note))){ ?>
                     <div style="border-radius: 5px 5px 5px 5px;border:1px solid #9D192B !important;height: auto;" id="note" class="col-md-12 col-xs-12">
-                        <h3><?= strip_tags($invs->note) ?></h3>
+                        <h4><?= strip_tags($invs->note) ?></h4>
                     </div>
-                    <br><br><br><br><br>
+                    <br><br>
             <?php } ?>
                 <div class="clear-both">
                     <div style="width:100%;height:80px"></div>
@@ -506,4 +511,13 @@
     </div>
 
 </body>
+
+<script type="text/javascript">
+    if(!<?=$invs->total_discount?$invs->total_discount:0; ?>){
+        $('td:nth-child(6),th:nth-child(6)').hide();
+    }
+    if(!<?=$invs->product_tax?$invs->product_tax:0; ?>){
+        $('td:nth-child(7),th:nth-child(7)').hide();
+    }
+</script>
 </html>

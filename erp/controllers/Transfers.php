@@ -2357,6 +2357,31 @@ class Transfers extends MY_Controller
 
         $this->load->view($this->theme.'transfers/invoice', $this->data);
     }
+    function invoice_transfer_mcar($id = null)
+    {
+       $this->erp->checkPermissions('index', TRUE);
+
+        if ($this->input->get('id')) {
+            $id = $this->input->get('id');
+        }
+
+        $inv = $this->transfers_model->getTransfersInvoiceByID($id);
+        $this->data['biller'] = $this->site->getCompanyByID($inv->biller_id);
+
+        $this->data['inv'] = $inv;
+        $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
+        $rows = $this->data['rows'] = $this->transfers_model->getAllTransfersInvoice($id);
+        $this->data['setting'] = $this->site->get_setting();
+        $this->data['page_title'] = lang("delivery_order");
+        $this->data['rows'] = $rows;
+
+        $transfer = $this->transfers_model->getTransfersInvoiceByID($id);
+        $this->data['from_warehouse'] = $this->site->getWarehouseByID($transfer->from_warehouse_id);
+        $this->data['to_warehouse'] = $this->site->getWarehouseByID($transfer->to_warehouse_id);
+        // $this->erp->print_arrays($this->data['from_warehouse']);
+
+        $this->load->view($this->theme.'transfers/invoice_transfer_mcar', $this->data);
+    }
 
     function invoice_chea_kheng($id = null)
     {
