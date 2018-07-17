@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="col-sm-4 col-xs-4 " style="margin-top: 0px !important;">
                                     <?php if(!empty($biller->logo)) { ?>
-                                        <center><img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px;" /></center>
+                                        <!--<center><img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px;" /></center>-->
                                     <?php } ?>
                                 </div>
                                 <div class="col-sm-4 col-xs-4 " >
@@ -168,20 +168,20 @@
 
 
                             <div class="row">
-                                <div class="col-sm-12 col-xs-12" style="margin-top: 0px !important;">
+                                <div class="col-sm-12 col-xs-12" style="margin-bottom: -29px !important;">
                                     <hr style="border-top:5px solid #9D192B !important;">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 col-xs-6 " style="margin-bottom: -15px;margin-top: -15px;">
+                                <div class="col-sm-6 col-xs-6 " style="">
                                     <h3 style="font-size: 16px !important; color: #9D192B !important;">INVOICE# : <?= $invs->reference_no ?></h3>
                                 </div>
-                                <div class="col-sm-6 col-xs-6 " style="margin-bottom: -15px;margin-top: -15px;color: #9D192B !important;">
+                                <div class="col-sm-6 col-xs-6 " style="color: #9D192B !important;">
                                     <h3 style="font-size: 16px !important; color: #9D192B !important;">DATE : <?= $this->erp->hrld($invs->date); ?></h3>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-xs-12 ">
+                                <div class="col-sm-12 col-xs-12" style="margin-top: -20px !important;">
                                     <hr style="border-top:3px solid #9D192B !important;">
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12 ">
-                                    <table class="noPadding" border="none">
+                                    <table class="noPadding" border="none" style="margin-bottom: -15px !important;margin-top: -14px !important;">
                                         <tr>
                                             <td style="text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>
                                             <?php if(!empty($biller->address_kh)) { ?>
@@ -261,17 +261,17 @@
                     }
                     ?>
                     <tr class="border">
-                        <td style="color: #9D192B !important;vertical-align: middle; text-align: center"><?php echo $no ?></td>
-                        <td style="color: #9D192B !important;vertical-align: middle;">
+                        <td style="width: 5%;color: #9D192B !important;vertical-align: middle; text-align: center"><?php echo $no ?></td>
+                        <td style="width: 50%; color: #9D192B !important;vertical-align: middle;">
                             <?=$row->product_name;?>
                         </td>
-                        <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
                             <?= $product_unit ?>
                         </td>
-                        <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
                             <?=$this->erp->formatQuantity($row->quantity);?>
                         </td>
-                        <td style="color: #9D192B !important;vertical-align: middle; text-align: right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: right">
                             <?php
                             if($row->real_unit_price==0){echo "Free";}
                             else{
@@ -280,7 +280,7 @@
                             ?>
                         </td>
                         <?php if ($row->item_discount) {?>
-                            <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
+                            <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
 
                                 <?php
                                 if(strpos($row->discount,"%")){
@@ -291,11 +291,11 @@
                             </td>
                         <?php } ?>
                         <?php if ($row->item_tax) {?>
-                            <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
+                            <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
                                 <?=$this->erp->formatMoney($row->item_tax);?></td>
                         <?php } ?>
 
-                        <td style="color: #9D192B !important;vertical-align: middle; text-align: right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: right">
                             <?php
                                 if($row->subtotal==0){echo "Free";}
                                 else{
@@ -316,8 +316,8 @@
                 }
                 ?>
                 <?php
-                if($erow<8){
-                    $k=8 - $erow;
+                if($erow<11){
+                    $k=11 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($discount != 0) {
                             echo  '<tr class="border">
@@ -468,11 +468,16 @@
                     <div style="border-radius: 5px 5px 5px 5px;border:1px solid #9D192B !important;height: auto;" id="note" class="col-md-12 col-xs-12">
                         <h4><?= strip_tags($invs->note) ?></h4>
                     </div>
-                    <br><br>
             <?php } ?>
+            <?php if ($invs->order_tax != 0 || $invs->order_discount != 0) { ?>
                 <div class="clear-both">
-                    <div style="width:100%;height:80px"></div>
+                    <div style="width:100%;height:40px"></div>
                 </div>
+            <?php }else{ ?>
+                <div class="clear-both">
+                    <div style="width:100%;height:125px"></div>
+                </div>
+            <?php } ?>
                 <div id="footer" class="row" >
                     <div class="col-sm-4 col-xs-4">
                         <center>

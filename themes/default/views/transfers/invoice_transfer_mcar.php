@@ -86,7 +86,7 @@
         }
 
         .trfoot{
-            height: 30px !important;
+            height: 20px !important;
             font-size: 12px !important;
         }
 
@@ -113,7 +113,7 @@
         color: #9D192B !important;
     }
     .trfoot{
-        height: 30px;
+        height: 20px;
     }
     .contact div,p{
         color: #9D192B !important;
@@ -192,7 +192,7 @@
                             <div class="row" style="margin-top: 0px !important;">
                                 <div class="col-sm-12 col-xs-12 " style="margin-top: 0px !important;">
                                     <?php if(!empty($biller->logo)) { ?>
-                                        <center><img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 200px;height: 100px;" /></center>
+                                        <!--<center><img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 200px;height: 100px;" /></center>-->
                                     <?php } ?>
                                 </div>
 
@@ -222,7 +222,6 @@
                                     </div>
                                 </div>
                             </div>
-<?php //$this->erp->print_arrays($inv); ?>
                         </th>
                     </tr>
                     <tr class="border">
@@ -231,13 +230,13 @@
                     <tr class="border">
                         <th><b class="dtt">No</b></th>
                         <th><b class="dtt">Product</b></th>
-                        <th><b class="dtt">QTY</b></th>
                         <th><b class="dtt">Unit</b></th>
+                        <th><b class="dtt">QTY</b></th>
 
                     </tr>
                 </thead>
                 <tbody>
-
+                <?php //$this->erp->print_arrays($inv); ?>
                 <?php
 
                 $no = 1;
@@ -271,10 +270,10 @@
                             <?=$row->product_name;?>
                         </td>
                         <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
-                            <?=$this->erp->formatQuantity($row->quantity);?>
+                            <?= $row->unit ?>
                         </td>
                         <td style="color: #9D192B !important;vertical-align: middle; text-align: center">
-                            <?= $row->unit ?>
+                            <?=$this->erp->formatQuantity($row->quantity);?>
                         </td>
 
 
@@ -291,8 +290,8 @@
                 }
                 ?>
                 <?php
-                if($erow<8){
-                    $k=8 - $erow;
+                if($erow<15){
+                    $k=15 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         echo  '<tr class="border">
                                 <td style="color:#9D192B !important; text-align: center; vertical-align: middle">'.$no.'</td>
@@ -307,41 +306,44 @@
 
                 </tbody>
             </table>
+            <br>
+            <br>
+            <br>
             <table style="width: 100%;font-size: 15px;">
                 <tr class="trfoot">
                     <td style="width: 20%;color: #9D192B !important;"></td>
-                    <td style="width: 20%;color: #9D192B !important;">Requested By</td>
-                    <td style="width: 20%;color: #9D192B !important;">Hand Over By</td>
-                    <td style="width: 20%;color: #9D192B !important;">Received By</td>
-                    <td style="width: 20%;color: #9D192B !important;">Ferified By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Requested By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Hand Over By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Received By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Ferified By</td>
                 </tr>
                 <tr class="trfoot">
                     <td style="width: 20%;color: #9D192B !important;">Signature :</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                 </tr>
                 <tr class="trfoot">
-                    <td style="width: 20%;color: #9D192B !important;">Name :</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                </tr class="trfoot">
+                    <td  style="width: 20%;color: #9D192B !important;">Name :</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                </tr>
                 <tr class="trfoot">
                     <td style="width: 20%;color: #9D192B !important;">Phone No :</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                    <td style="width: 20%;color: #9D192B !important;">...........................</td>
-                </tr class="trfoot">
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                </tr>
                 <tr class="trfoot">
                     <td style="width: 20%;color: #9D192B !important;">Date/Time :</td>
-                    <td style="width: 20%;color: #9D192B !important;">................/...........</td>
-                    <td style="width: 20%;color: #9D192B !important;">................/...........</td>
-                    <td style="width: 20%;color: #9D192B !important;">................/...........</td>
-                    <td style="width: 20%;color: #9D192B !important;">................/...........</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                 </tr>
             </table>
             <br>
@@ -371,7 +373,7 @@
 
 
         <div style="width: 821px;margin: 20px;">
-            <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="margin-top: 20px !important;border-radius: 0">
+            <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>"  style="margin-top: 20px !important;border-radius: 0 ;" >
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
             </a>
         </div>
