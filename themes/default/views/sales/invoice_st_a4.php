@@ -215,6 +215,8 @@
 
                         </th>
                     </tr>
+                    <table>
+                    <thead>
                     <tr class="border">
                         <th style="color: #9D192B !important;">ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                         <th style="color: #9D192B !important;">បរិយាយមុខទំនិញ<br /><?= strtoupper(lang('description')) ?></th>
@@ -271,7 +273,7 @@
                         <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
                             <?=$this->erp->formatQuantity($row->quantity);?>
                         </td>
-                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center;">
                             <?php
                             if($row->real_unit_price==0){echo "Free";}
                             else{
@@ -295,7 +297,7 @@
                                 <?=$this->erp->formatMoney($row->item_tax);?></td>
                         <?php } ?>
 
-                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center;">
                             <?php
                                 if($row->subtotal==0){echo "Free";}
                                 else{
@@ -348,8 +350,8 @@
                 $row = 1;
                 $col =3;
                 $col2=3;
-                if($invs->total_discount){$col=4;$col2=3;}
-                if($invs->product_tax){$col=4;$col2=3;}
+                if($invs->total_discount){$col=4;$col2=2;}
+                if($invs->product_tax){$col=4;$col2=2;}
                 if($invs->total_discount>0 && $invs->product_tax>0 ){$col=4;$col2=4;}
                 if($invs->total_discount==0 && $invs->product_tax==0 ){$col=3;$col2=2;}
                 if ($discount != 0) {
@@ -357,6 +359,7 @@
                 }
                 if ($invs->grand_total != $invs->total) {
                     $row++;
+
                 }
                 if ($invs->order_discount != 0) {
                     $row++;
@@ -428,7 +431,7 @@
                     <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                         (<?= $default_currency->code; ?>)
                     </td>
-                    <td align="right" style="color:#9D192B !important;">
+                    <td align="right" style="color:#9D192B !important; text-align: center;">
                         <?php
                             if($invs->grand_total==0){echo "Free";}
                             else{
@@ -451,14 +454,14 @@
                             <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
                                 (<?= $default_currency->code; ?>)
                             </td>
-                            <td align="right" style="color:#9D192B !important;"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
+                            <td align="right" style="color:#9D192B !important; text-align: center;"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                         </tr>
                     <?php } ?>
                     <tr class="border-foot">
                         <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right" style="color:#9D192B !important;"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
+                        <td align="right" style="color:#9D192B !important;text-align: center;"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
                     </tr>
                 <?php } ?>
 
