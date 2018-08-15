@@ -24,6 +24,7 @@
 
     .border td,.border th{
         border: 1px solid #9D192B !important;
+        padding: 6px;
 
     }
 
@@ -192,14 +193,14 @@
                                 <div class="col-sm-12 col-xs-12 ">
                                     <table class="noPadding" border="none" style="margin-bottom: -15px !important;margin-top: -14px !important;">
                                         <tr>
-                                            <td style="text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>
+                                            <td style="padding:20px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
                                             <?php if(!empty($biller->address_kh)) { ?>
                                                 <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address_kh?></td>
                                             <?php }else { ?>
                                                 <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address ?></td>
                                             <?php } ?>
                                             <td style="width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
-                                            <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name_kh; ?></td>
+                                            <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name; ?></td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: left;padding:5px;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
@@ -318,8 +319,8 @@
                 }
                 ?>
                 <?php
-                if($erow<11){
-                    $k=11 - $erow;
+                if($erow<16){
+                    $k=16 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($discount != 0) {
                             echo  '<tr class="border">
