@@ -16,7 +16,7 @@
         width: 100%;
         min-height: 27.7cm;
         margin: 20px auto;
-        padding: 10px;
+
         font-size: 12px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         position:relative;
@@ -39,6 +39,7 @@
             height:auto !important;
             font-size: 11px !important;
             margin: 0 auto !important;
+            
         }
         .customer_label {
             padding-left: 0 !important;
@@ -83,6 +84,8 @@
         table {border-collapse: collapse;}
 
 
+
+
     }
 
     body{
@@ -104,13 +107,7 @@
         margin-top: 0px;
         margin-bottom: 0px;
     }
-    .noPadding tr{
-        padding: 0px 0px;
-        margin-top: 0px;
-        font-size: 13px !important;
-        margin-bottom: 0px;
-        border: none;
-    }
+
     #note h4{
         padding: 10px;
         font-size: 16px ;
@@ -134,6 +131,8 @@
             display: none !important;
 
         }
+
+    }
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -202,7 +201,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-xs-12" style="margin-top: -27px !important;">
+                                <div class="col-sm-12 col-xs-12" style="margin-top: -30px !important;">
                                     <hr style="border-top:2px solid #9D192B !important;">
                                 </div>
                             </div>
@@ -211,20 +210,20 @@
 
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12 ">
-                                    <table class="noPadding" border="none" style="margin-bottom: -15px !important;margin-top: -14px !important;">
+                                    <table class="noPadding" border="none" style="margin-bottom: -15px !important;margin-top: -31px !important;">
                                         <tr>
-                                            <td style="padding:20px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
+                                            <td style="padding:10px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
                                             <?php if(!empty($biller->address_kh)) { ?>
-                                                <td style="width: 63%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address_kh?></td>
+                                                <td style="width: 63%; text-align: left;color: #9D192B !important;"><?= $biller->address_kh?></td>
                                             <?php }else { ?>
-                                                <td style="width: 63%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address ?></td>
+                                                <td style="width: 63%; text-align: left;color: #9D192B !important;"><?= $biller->address ?></td>
                                             <?php } ?>
-                                            <td style="padding:20px;width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
-                                            <td style="width: 63%; text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name; ?></td>
+                                            <td style="padding:10px;width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
+                                            <td style="width: 63%; text-align: left;color: #9D192B !important;">Name : <?= $customer->name; ?></td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: left;padding:5px;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
-                                            <td style="padding:20px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
+                                            <td style="text-align: left;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
+                                            <td style="padding:10px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
                                             <td style="text-align: left;padding:5px;color: #9D192B !important;">phone : <?= $customer->phone; ?></td>
                                         </tr>
                                     </table>
@@ -449,10 +448,10 @@
                             <?php } ?>
                         </td>
                     <?php } ?>
-                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;" class="col">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
+                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;" class="col">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                         (<?= $default_currency->code; ?>)
                     </td>
-                    <td align="right" style="color:#9D192B !important; text-align: center;">
+                    <td align="right" style="color:#9D192B !important; text-align: center; background-color:#ffb3b3;">
                         <?php
                             if($invs->grand_total==0){echo "Free";}
                             else{
@@ -472,17 +471,17 @@
                     <?php } ?>
                     <?php if($invs->paid != 0) { ?>
                         <tr class="border-foot">
-                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;" class="col">បានបង់ / <?= strtoupper(lang('paid')) ?>
+                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;" class="col">បានបង់ / <?= strtoupper(lang('paid')) ?>
                                 (<?= $default_currency->code; ?>)
                             </td>
-                            <td align="right" style="color:#9D192B !important; text-align: center;"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
+                            <td align="right" style="color:#9D192B !important; text-align: center; background-color:#ffb3b3;"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                         </tr>
                     <?php } ?>
                     <tr class="border-foot">
-                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;" class="col">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
+                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;" class="col">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right" style="color:#9D192B !important;text-align: center;"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
+                        <td align="right" style="color:#9D192B !important;text-align: center; background-color:#ffb3b3;"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
                     </tr>
                 <?php } ?>
 
