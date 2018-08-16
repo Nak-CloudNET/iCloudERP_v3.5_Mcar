@@ -208,7 +208,6 @@
 
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12" style="margin-top: 0px !important;">
                                     <div class="col-sm-12 col-xs-12 ">
