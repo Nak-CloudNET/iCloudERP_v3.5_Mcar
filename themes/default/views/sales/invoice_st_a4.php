@@ -22,9 +22,9 @@
         position:relative;
     }
 
-    .border td,.border th{
+    .border td,.border th, .col{
         border: 1px solid #9D192B !important;
-        padding: 4px;
+        padding: 3px;
 
     }
 
@@ -189,8 +189,8 @@
 
 
                             <div class="row">
-                                <div class="col-sm-12 col-xs-12" style="margin-bottom: -29px !important;">
-                                    <hr style="border-top:5px solid #9D192B !important;">
+                                <div class="col-sm-12 col-xs-12" style="margin-bottom: -37px !important;">
+                                    <hr style="border-top:3px solid #9D192B !important;">
                                 </div>
                             </div>
                             <div class="row">
@@ -202,8 +202,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-xs-12" style="margin-top: -20px !important;">
-                                    <hr style="border-top:3px solid #9D192B !important;">
+                                <div class="col-sm-12 col-xs-12" style="margin-top: -27px !important;">
+                                    <hr style="border-top:2px solid #9D192B !important;">
                                 </div>
                             </div>
 
@@ -215,16 +215,16 @@
                                         <tr>
                                             <td style="padding:20px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
                                             <?php if(!empty($biller->address_kh)) { ?>
-                                                <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address_kh?></td>
+                                                <td style="width: 63%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address_kh?></td>
                                             <?php }else { ?>
-                                                <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address ?></td>
+                                                <td style="width: 63%; text-align: left;padding:5px;color: #9D192B !important;"><?= $biller->address ?></td>
                                             <?php } ?>
-                                            <td style="width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
-                                            <td style="width: 70%; text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name; ?></td>
+                                            <td style="padding:20px;width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
+                                            <td style="width: 63%; text-align: left;padding:5px;color: #9D192B !important;">Name : <?= $customer->name; ?></td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: left;padding:5px;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
-                                            <td style="text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
+                                            <td style="padding:20px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
                                             <td style="text-align: left;padding:5px;color: #9D192B !important;">phone : <?= $customer->phone; ?></td>
                                         </tr>
                                     </table>
@@ -449,7 +449,7 @@
                             <?php } ?>
                         </td>
                     <?php } ?>
-                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
+                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;" class="col">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                         (<?= $default_currency->code; ?>)
                     </td>
                     <td align="right" style="color:#9D192B !important; text-align: center;">
@@ -472,14 +472,14 @@
                     <?php } ?>
                     <?php if($invs->paid != 0) { ?>
                         <tr class="border-foot">
-                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
+                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;" class="col">បានបង់ / <?= strtoupper(lang('paid')) ?>
                                 (<?= $default_currency->code; ?>)
                             </td>
                             <td align="right" style="color:#9D192B !important; text-align: center;"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                         </tr>
                     <?php } ?>
                     <tr class="border-foot">
-                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
+                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;" class="col">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
                         <td align="right" style="color:#9D192B !important;text-align: center;"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
@@ -499,7 +499,7 @@
                 </div>
             <?php }else{ ?>
                 <div class="clear-both">
-                    <div style="width:100%;height:125px"></div>
+                    <div style="width:100%;height:40px"></div>
                 </div>
             <?php } ?>
                 <div id="footer" class="row" >

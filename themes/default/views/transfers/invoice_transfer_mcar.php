@@ -113,7 +113,7 @@
         color: #9D192B !important;
     }
     .trfoot{
-        height: 20px;
+        height: 10px;
     }
     .contact div,p{
         color: #9D192B !important;
@@ -290,8 +290,8 @@
                 }
                 ?>
                 <?php
-                if($erow<15){
-                    $k=15 - $erow;
+                if($erow<13){
+                    $k=13 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         echo  '<tr class="border">
                                 <td style="color:#9D192B !important; text-align: center; vertical-align: middle">'.$no.'</td>
@@ -309,20 +309,20 @@
             <br>
             <br>
             <br>
-            <table style="width: 100%;font-size: 15px;">
+            <table style="width: 100%;font-size: 13px;">
                 <tr class="trfoot">
                     <td style="width: 20%;color: #9D192B !important;"></td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Requested By</td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Hand Over By</td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Received By</td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;">Ferified By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important; font-weight: bold;">Requested By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important; font-weight: bold;">Hand Over By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important; font-weight: bold;">Received By</td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important; font-weight: bold;">Ferified By</td>
                 </tr>
                 <tr class="trfoot">
                     <td style="width: 20%;color: #9D192B !important;">Signature :</td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
-                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
+                    <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                 </tr>
                 <tr class="trfoot">
                     <td  style="width: 20%;color: #9D192B !important;">Name :</td>
@@ -349,13 +349,13 @@
             <br>
             <div class="row contact" >
                 <div class="col-sm-2 col-xs-2">
-                    <p>Contact :</p>
+                    <p><b style="color: #9D192B !important;">Contact :</b></p>
                 </div>
                 <div class="col-sm-5 col-xs-5">
-                    <p>MCP Intercon : 095 91 36 36</p>
+                    <p><b style="color: #9D192B !important;">MCP Intercon</b> : 095 91 36 36</p>
                 </div>
                 <div class="col-sm-5 col-xs-5">
-                    <p>MCP Phsar Depo : 076 691 36 36</p>
+                    <p><b style="color: #9D192B !important;">MCP Phsar Depo</b> : 076 691 36 36</p>
                 </div>
             </div>
             <div class="row contact" >
@@ -363,7 +363,7 @@
                     <p>&nbsp;</p>
                 </div>
                 <div class="col-sm-10 col-xs-10">
-                    <p>Facebook : https://www.facebook.com/mCarPartsServices/</p>
+                    <p><b style="color: #9D192B !important;">Facebook</b> : https://www.facebook.com/mCarPartsServices/</p>
                 </div>
 
             </div>
