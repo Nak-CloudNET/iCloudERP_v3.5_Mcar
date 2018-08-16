@@ -24,7 +24,7 @@
 
     .border td,.border th{
         border: 1px solid #9D192B !important;
-        padding: 6px;
+        padding: 4px;
 
     }
 
@@ -129,6 +129,11 @@
         font-weight: normal;
         text-align: center;
     }
+    @media print {
+        #print{
+            display: none !important;
+
+        }
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -152,7 +157,22 @@
             <table class="table">
                 <thead>
                     <tr class="thead" style="border-left:none;border-right: none;border-top:none;">
-                        <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #9D192B !important;">
+                        <th colspan="12" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #9D192B !important;">
+                            <div class="row" style="margin-top: 0px !important;">
+                                <div class="col-sm-4 col-xs-4 " style="margin-top: 0px !important;">
+
+                                </div>
+                                <div class="col-sm-4 col-xs-4 " style="margin-top: 0px !important;">
+                                    <?php if(!empty($biller->logo)) { ?>
+                                        <!--<center><img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px;" /></center>-->
+                                    <?php } ?>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 " >
+                                    <button  id="print" onclick="window.print()" class="btn btn-success ">
+                                        Print
+                                    </button>
+                                </div>
+                            </div>
                             <div class="row" style="margin-top: 0px !important;">
                                 <div class="col-sm-4 col-xs-4 " style="margin-top: 0px !important;">
                                     <h3 class="title">វិក្កយបត្រ</h3>
@@ -319,8 +339,8 @@
                 }
                 ?>
                 <?php
-                if($erow<16){
-                    $k=16 - $erow;
+                if($erow<11){
+                    $k=11 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($discount != 0) {
                             echo  '<tr class="border">
