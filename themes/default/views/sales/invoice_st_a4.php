@@ -248,10 +248,10 @@
                         <th style="color: #9D192B !important;">ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
                         <th style="color: #9D192B !important;">តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
 
-                        <?php if ($Settings->product_discount) { ?>
+                        <?php  if ($invs->product_discount > 0) { ?>
                             <th style="color: #9D192B !important;">បញ្ចុះតម្លៃ<br /><?= strtoupper(lang('discount')) ?></th>
                         <?php } ?>
-                        <?php if ($Settings->tax1) { ?>
+                        <?php if ($invs->product_tax > 0) { ?>
                             <th style="color: #9D192B !important;width: 10%">ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
                         <?php } ?>
                         <th style="color: #9D192B !important;">តម្លៃសរុប<br /><?= strtoupper(lang('subtotal')) ?></th>
@@ -305,7 +305,7 @@
                                 }
                             ?>
                         </td>
-                        <?php if ($row->item_discount) {?>
+                        <?php if ($invs->product_discount > 0) {?>
                             <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
 
                                 <?php
@@ -316,7 +316,7 @@
                                 ?>
                             </td>
                         <?php } ?>
-                        <?php if ($row->item_tax) {?>
+                        <?php if ($invs->product_tax > 0) { ?>
                             <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
                                 <?=$this->erp->formatMoney($row->item_tax);?></td>
                         <?php } ?>
@@ -342,60 +342,52 @@
                 }
                 ?>
                 <?php
-                if($erow<11){
-                    $k=11 - $erow;
-                    for($j=1;$j<=$k;$j++) {
-                        if($discount != 0) {
-                            echo  '<tr class="border">
-                                    <td style="color:#9D192B !important; text-align: center; vertical-align: middle">'.$no.'</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    </tr>';
-                        }else {
-                            echo  '<tr class="border">
-                                    <td style="color:#9D192B !important;text-align: center; vertical-align: middle">'.$no.'</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>';
-        }
-                        $no++;
+                    if($erow < 11){
+                        $k = 12 - $erow;
+                        for($j=2; $j<=$k; $j++) {
+                ?>
+                            <tr class="border">
+                                <td style="width: 5%;color: #9D192B !important;vertical-align: middle; text-align: center"><?php echo $j ?></td>
+                                <td style="width: 50%; color: #9D192B !important;vertical-align: middle;"></td>
+                                <td style="width: 8%;color: #9D192B !important;vertical-align: middle;"></td>
+                                <td style="width: 8%;color: #9D192B !important;vertical-align: middle;"></td>
+                                <?php if ($invs->product_discount > 0) {?>
+                                    <td style="width: 8%;color: #9D192B !important;vertical-align: middle;"></td>
+                                <?php } ?>
+                                <?php if ($invs->product_tax > 0) {?>
+                                    <td style="width: 8%;color: #9D192B !important;vertical-align: middle;"></td>
+                                <?php } ?>
+                                <td style="width: 8%;color: #9D192B !important;vertical-align: middle;"></td>
+                                <td style="width: 8%;color: #9D192B !important;vertical-align: middle;"></td>
+                            </tr>
+                <?php
+                        }
                     }
-                }
                 ?>
                 <?php
-                $row = 1;
-                $col =3;
-                $col2=3;
-                if($invs->total_discount){$col=4;$col2=2;}
-                if($invs->product_tax){$col=4;$col2=2;}
-                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=4;$col2=4;}
-                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=4;$col2=2;}
-                if ($discount != 0) {
-                    $col = 2;
+                $row    = 1;
+                $col    = 3;
+                $col2   = 2;
+
+
+                if ($invs->product_discount > 0) {
+                    $col++;
+                }
+                if ($invs->product_tax > 0) {
+                    $col++;
                 }
                 if ($invs->grand_total != $invs->total) {
-                    $row++;
+                    $row++ ;
 
                 }
                 if ($invs->order_discount != 0) {
                     $row++;
-                    $col =4;
                 }
                 if ($invs->shipping != 0) {
                     $row++;
-                    $col =4;
                 }
                 if ($invs->order_tax != 0) {
                     $row++;
-                    $col =4;
                 }
                 if($invs->paid != 0 && $invs->deposit != 0) {
                     $row += 3;
@@ -406,8 +398,7 @@
                 }
                 ?>
 
-                <?php
-                if ($invs->grand_total != $invs->total) { ?>
+                <?php if ($invs->grand_total != $invs->total) { ?>
                     <tr class="border-foot" style="">
                         <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="color:#9D192B !important;border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
                             <?php if (!empty($invs->invoice_footer)) { ?>
@@ -545,12 +536,4 @@
 
 </body>
 
-<script type="text/javascript">
-    if(!<?=$invs->total_discount?$invs->total_discount:0; ?>){
-        $('td:nth-child(6),th:nth-child(6)').hide();
-    }
-    if(!<?=$invs->product_tax?$invs->product_tax:0; ?>){
-        $('td:nth-child(7),th:nth-child(7)').hide();
-    }
-</script>
 </html>
