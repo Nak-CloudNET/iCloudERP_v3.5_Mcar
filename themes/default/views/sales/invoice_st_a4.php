@@ -299,26 +299,38 @@
                         </td>
                         <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center;">
                             <?php
-                            if($row->real_unit_price==0){echo "Free";}
+                            if($row->real_unit_price==0){echo "";}
                             else{
                                 echo $this->erp->formatMoney($row->real_unit_price);
                             }
                             ?>
                         </td>
-                        <?php if ($row->item_discount>0) {?>
-                            <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
-
-                                <?php
-                                if(strpos($row->discount,"%")){
-                                    echo "<small style='font-size:10px;'>(".$row->discount.")</small>" ;
-                                }
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center;">
+                            <?php
+                            if($row->item_discount==0){echo "";}
+                            else{
                                 echo $this->erp->formatMoney($row->item_discount);
-                                ?>
-                            </td>
-                        <?php } ?>
+                            }
+                            ?>
+                        </td>
+<!--                        --><?php //if ($row->item_discount>0) {?>
+<!--                            <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">-->
+<!---->
+<!--                                --><?php
+//                                if(strpos($row->discount,"%")){
+//                                    echo "<small style='font-size:10px;'>(".$row->discount.")</small>" ;
+//                                }
+//                                echo $this->erp->formatMoney($row->item_discount);
+//                                ?>
+<!--                            </td>-->
+<!--                        --><?php //} ?>
                         <?php if ($row->item_tax>0) {?>
                             <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
                                 <?=$this->erp->formatMoney($row->item_tax);?></td>
+                        <?php } ?>
+                        <?php if ($row->item_tax ==0) {?>
+                            <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center">
+                                </td>
                         <?php } ?>
 
                         <td style="width: 8%;color: #9D192B !important;vertical-align: middle; text-align: center;">
@@ -500,11 +512,11 @@
             <?php } ?>
             <?php if ($invs->order_tax != 0 || $invs->order_discount != 0) { ?>
                 <div class="clear-both">
-                    <div style="width:100%;height:40px"></div>
+                    <div style="width:100%;height:80px"></div>
                 </div>
             <?php }else{ ?>
                 <div class="clear-both">
-                    <div style="width:100%;height:40px"></div>
+                    <div style="width:100%;height:80px"></div>
                 </div>
             <?php } ?>
             <div id="footer" class="row" >
