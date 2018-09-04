@@ -192,16 +192,16 @@
 
 
                     <div class="row">
-                        <div class="col-sm-12 col-xs-12" style="margin-bottom: -37px !important;">
+                        <div class="col-sm-12 col-xs-12" style="margin-bottom: -42px !important;">
                             <hr style="border-top:3px solid #9D192B !important;">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 col-xs-6 " style="">
-                            <h3 style="font-size: 16px !important; color: #9D192B !important;">INVOICE# : <?= $invs->reference_no ?></h3>
+                        <div class="col-sm-6 col-xs-6 ">
+                            <h3 style="font-size: 16px !important; color: #9D192B !important;" align="left">INVOICE# : <?= $invs->reference_no ?></h3>
                         </div>
                         <div class="col-sm-6 col-xs-6 " style="color: #9D192B !important;">
-                            <h3 style="font-size: 16px !important; color: #9D192B !important;">DATE : <?= $this->erp->hrld($invs->date); ?></h3>
+                            <h3 style="font-size: 16px !important; color: #9D192B !important;" align="right">DATE : <?= $this->erp->hrld($invs->date); ?></h3>
                         </div>
                     </div>
                     <div class="row">
@@ -214,21 +214,21 @@
 
                     <div class="row">
                         <div class="col-sm-12 col-xs-12 ">
-                            <table class="noPadding" border="none" style="margin-bottom: -15px !important;margin-top: -31px !important;">
+                            <table class="noPadding" border="none" style="margin-bottom: -19px !important;margin-top: -31px !important;">
                                 <tr>
                                     <td style="padding:10px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
                                     <?php if(!empty($biller->address_kh)) { ?>
-                                        <td style="width: 63%; text-align: left;color: #9D192B !important;"><?= $biller->address_kh?></td>
+                                        <td style="width: 63%; text-align: left;color: #9D192B !important;" align="left"><?= $biller->address_kh?></td>
                                     <?php }else { ?>
-                                        <td style="width: 63%; text-align: left;color: #9D192B !important;"><?= $biller->address ?></td>
+                                        <td style="width: 63%; text-align: left;color: #9D192B !important;" align="left"><?= $biller->address ?></td>
                                     <?php } ?>
                                     <td style="padding:10px;width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
-                                    <td style="width: 63%; text-align: left;color: #9D192B !important;">Name : <?= $customer->name; ?></td>
+                                    <td style="width: 63%; text-align: left;color: #9D192B !important;" align="right">Name : <?= $customer->name; ?></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: left;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
                                     <td style="padding:10px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
-                                    <td style="text-align: left;padding:5px;color: #9D192B !important;">phone : <?= $customer->phone; ?></td>
+                                    <td style="text-align: left;padding:5px;color: #9D192B !important;" align="right">phone : <?= $customer->phone; ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -512,11 +512,11 @@
             <?php } ?>
             <?php if ($invs->order_tax != 0 || $invs->order_discount != 0) { ?>
                 <div class="clear-both">
-                    <div style="width:100%;height:80px"></div>
+                    <div style="width:100%;height:150px"></div>
                 </div>
             <?php }else{ ?>
                 <div class="clear-both">
-                    <div style="width:100%;height:80px"></div>
+                    <div style="width:100%;height:150px"></div>
                 </div>
             <?php } ?>
             <div id="footer" class="row" >

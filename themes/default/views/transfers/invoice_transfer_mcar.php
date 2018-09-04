@@ -89,6 +89,10 @@
             height: 20px !important;
             font-size: 12px !important;
         }
+        #print{
+            display: none;
+        }
+
 
         .str{
             font-size: 16px !important;
@@ -197,6 +201,17 @@
                                 </div>
 
                             </div>
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-4"></div>
+
+                                <div class="col-sm-4 col-xs-4"></div>
+                                <div class="col-sm-4 col-xs-4 " >
+                                    <button  id="print" onclick="window.print()" class="btn btn-success ">
+                                        Print
+                                    </button>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12 " style="margin-top: 0px !important;">
                                     <div class="col-sm-3 col-xs-3 ">
