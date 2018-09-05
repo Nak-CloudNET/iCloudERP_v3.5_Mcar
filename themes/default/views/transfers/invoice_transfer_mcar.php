@@ -225,13 +225,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12" style="margin-top: 0px !important;">
-                                    <div class="col-sm-12 col-xs-12 ">
+                                    <div class="col-sm-12 col-xs-12 " align="left" >
                                         <p  class="dtt">
-                                            Date :&nbsp; <span class="dtt"><?= $this->erp->hrld($inv->date) ?></span>
+                                            Date: <span class="dtt"><?= $this->erp->hrld($inv->date) ?></span>
                                             &nbsp;&nbsp;
-                                            Transfer From :&nbsp; <span class="dtt"><?= $inv->from_warehouse_name ?></span>
+                                            Transfer From: <span class="dtt"><?= $inv->from_warehouse_name ?></span>
                                             &nbsp;&nbsp;
-                                            Transfer To :&nbsp; <span class="dtt"><?= $inv->to_warehouse_name ?></span>
+                                            Transfer To:&nbsp; <span class="dtt"><?= $inv->to_warehouse_name ?></span>
                                         </p>
                                     </div>
                                 </div>
@@ -332,28 +332,28 @@
                     <td style="padding: 2px; width: 20%;color: #9D192B !important; font-weight: bold;">Ferified By</td>
                 </tr>
                 <tr class="trfoot">
-                    <td style="width: 20%;color: #9D192B !important;">Signature :</td>
+                    <td style="width: 20%;color: #9D192B !important;">Signature&nbsp;&nbsp;&nbsp;&nbsp; :</td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 5px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                 </tr>
                 <tr class="trfoot">
-                    <td  style="width: 20%;color: #9D192B !important;">Name :</td>
+                    <td  style="width: 20%;color: #9D192B !important;">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                 </tr>
                 <tr class="trfoot">
-                    <td style="width: 20%;color: #9D192B !important;">Phone No :</td>
+                    <td style="width: 20%;color: #9D192B !important;">Phone No&nbsp;&nbsp;&nbsp;&nbsp;:</td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                 </tr>
                 <tr class="trfoot">
-                    <td style="width: 20%;color: #9D192B !important;">Date/Time :</td>
+                    <td style="width: 20%;color: #9D192B !important;">Date/Time&nbsp;&nbsp;&nbsp; :</td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
                     <td style="padding: 2px; width: 20%;color: #9D192B !important;"><p style="margin-top: 10px; width: 100%; height: 1px;background-color:#9D192B !important; "></p></td>
@@ -363,7 +363,7 @@
             <br>
             <div class="row contact" >
                 <div class="col-sm-2 col-xs-2">
-                    <p><b style="color: #9D192B !important;">Contact :</b></p>
+                    <p><b style="color: #9D192B !important;">Contact &nbsp;&nbsp;&nbsp;:</b></p>
                 </div>
                 <div class="col-sm-5 col-xs-5">
                     <p><b style="color: #9D192B !important;">MCP Intercon</b> : 095 91 36 36</p>
