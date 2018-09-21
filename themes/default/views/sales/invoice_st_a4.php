@@ -455,24 +455,24 @@
                                 <p style="color:#9D192B !important;margin-top:-5px !important; line-height: 2"><?= $invs->invoice_footer ?></p>
                             <?php } ?>
                         </td>
-                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;">សរុប​ / <?= strtoupper(lang('total')) ?>
+                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;padding: 3px;">សរុប​ / <?= strtoupper(lang('total')) ?>
 
                         </td>
-                        <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding-right: 3px;"><?=$this->erp->formatMoney($invs->total); ?></td>
+                        <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding: 3px;"><?=$this->erp->formatMoney($invs->total); ?></td>
                     </tr>
                 <?php } ?>
 
                 <?php if ($invs->order_discount != 0) : ?>
                     <tr class="border-foot">
-                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;">បញ្ចុះតម្លៃ / <?= strtoupper(lang('order_discount')) ?></td>
-                        <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding-right: 3px;"><small style='color:#9D192B !important;font-size:10px;'>(<?php echo $invs->order_discount_id; ?>%)</small>&nbsp;<?php echo $this->erp->formatMoney($invs->order_discount); ?></td>
+                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;padding: 3px;">បញ្ចុះតម្លៃ / <?= strtoupper(lang('order_discount')) ?></td>
+                        <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding: 3px;"><small style='color:#9D192B !important;font-size:10px;'>(<?php echo $invs->order_discount_id; ?>%)</small>&nbsp;<?php echo $this->erp->formatMoney($invs->order_discount); ?></td>
                     </tr>
                 <?php endif; ?>
 
                 <?php if ($invs->shipping != 0) : ?>
                     <tr class="border-foot">
-                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;">ដឹកជញ្ជូន / <?= strtoupper(lang('shipping')) ?></td>
-                        <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding-right: 3px;"><?php echo $this->erp->formatMoney($invs->shipping); ?></td>
+                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;padding: 3px;">ដឹកជញ្ជូន / <?= strtoupper(lang('shipping')) ?></td>
+                        <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding: 4px;"><?php echo $this->erp->formatMoney($invs->shipping); ?></td>
                     </tr>
                 <?php endif; ?>
 
@@ -492,10 +492,10 @@
                             <?php } ?>
                         </td>
                     <?php } ?>
-                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;" class="tfoot">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
+                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
 
                     </td>
-                    <td align="right" style="color:#9D192B !important; background-color:#ffb3b3; padding-right: 3px;" class="tfoot">
+                    <td align="right" style="color:#9D192B !important; background-color:#ffb3b3; padding: 3px;" class="tfoot">
                         <?php
                         if($invs->grand_total==0){echo "Free";}
                         else{
@@ -516,17 +516,17 @@
                     <?php if($invs->paid != 0) { ?>
                         <tr class="border-foot" style="background-color:#ffb3b3;
 ">
-                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;" class="tfoot">បានបង់ / <?= strtoupper(lang('paid')) ?>
+                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot">បានបង់ / <?= strtoupper(lang('paid')) ?>
                                 (<?= $default_currency->code; ?>)
                             </td>
-                            <td align="right" style="color:#9D192B !important; text-align: center; background-color:#ffb3b3;" class="tfoot"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
+                            <td align="right" style="color:#9D192B !important; background-color:#ffb3b3;padding: 3px;" class="tfoot"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                         </tr>
                     <?php } ?>
                     <tr class="border-foot">
-                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;" class="tfoot">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
+                        <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right" style="color:#9D192B !important;text-align: center; background-color:#ffb3b3;" class="tfoot"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
+                        <td align="right" style="color:#9D192B !important; background-color:#ffb3b3;padding: 3px;" class="tfoot"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
                     </tr>
                 <?php } ?>
 
