@@ -35,11 +35,19 @@
             page-break-after: always;
             -webkit-page-break-after: always;
         }
+
+        .size1{width: 15%;}
+        .size{width: 15%;}
+        .size2{width: 15%;}
         .container {
             width: 95% !important;
             height:auto !important;
             font-size: 11px !important;
             margin: 0 auto !important;
+
+        }
+        .tfoot{
+            background-color:#ffb3b3 !important;
 
         }
         .customer_label {
@@ -132,10 +140,7 @@
             display: none !important;
 
         }
-        .tfoot{
-            background-color:#ffb3b3 !important;
 
-        }
 
     }
 
@@ -217,19 +222,19 @@
                         <div class="col-sm-12 col-xs-12 ">
                             <table class="noPadding" border="none" style="margin-bottom: -19px !important;margin-top: -31px !important;">
                                 <tr>
-                                    <td style="padding:5px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
+                                    <td style="padding:4px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; " rowspan="2">Address </td>&nbsp;&nbsp;&nbsp;
                                     <?php if(!empty($biller->address_kh)) { ?>
-                                        <td style="width: 63%; text-align: left;color: #9D192B !important;" align="left"><?= $biller->address_kh?></td>
+                                        <td style="width: 63%; text-align: left;color: #9D192B !important;padding-left: 3px;" align="left"><?= $biller->address_kh?></td>
                                     <?php }else { ?>
-                                        <td style="width: 63%; text-align: left;color: #9D192B !important;" align="left"><?= $biller->address ?></td>
+                                        <td style="width: 63%; text-align: left;color: #9D192B !important;padding-left: 3px;" align="left"><?= $biller->address ?></td>
                                     <?php } ?>
-                                    <td style="padding:10px;width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
-                                    <td style="width: 63%; text-align: left;color: #9D192B !important;" align="right">Name : <?= $customer->name; ?></td>
+                                    <td style="padding:4px;width: 5%; text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">BILL</td>
+                                    <td style="width: 63%; text-align: left;color: #9D192B !important;padding-left: 3px;" align="right">Name : <?= $customer->name; ?></td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: left;color: #9D192B !important;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
-                                    <td style="padding:5px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
-                                    <td style="text-align: left;padding:5px;color: #9D192B !important;" align="right">phone : <?= $customer->phone; ?></td>
+                                    <td style="text-align: left;color: #9D192B !important;padding-left: 3px;">លេខទូរស័ព្ទ : (+855)&nbsp;&nbsp;<?= $biller->phone?></td>
+                                    <td style="padding:4px;text-align: left;border-right: 3px solid #9D192B !important;color: #9D192B !important; ">TO</td>
+                                    <td style="text-align: left;padding:3px;color: #9D192B !important;" align="right">phone : <?= $customer->phone; ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -256,9 +261,9 @@
                 <tr class="border">
                     <th style="color: #9D192B !important;">ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                     <th style="color: #9D192B !important;">បរិយាយមុខទំនិញ<br /><?= strtoupper(lang('description')) ?></th>
-                    <th style="color: #9D192B !important;">ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
-                    <th style="color: #9D192B !important;">ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
-                    <th style="color: #9D192B !important;">តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
+                    <th style="color: #9D192B !important;" class="size">ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
+                    <th style="color: #9D192B !important;" class="size1">ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
+                    <th style="color: #9D192B !important;" class="size2">តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
 
                     <?php if ($total_discount) { ?>
                         <th style="color: #9D192B !important;">បញ្ចុះតម្លៃ<br /><?= strtoupper(lang('discount')) ?></th>
@@ -303,13 +308,13 @@
                         <td style="width: 50%; color: #9D192B !important;" >
                             <?=$row->product_name;?>
                         </td>
-                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle;" align="right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle;text-align: center;">
                             <?= $product_unit ?>
                         </td>
-                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle;" align="right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle;text-align: center;" class="size" >
                             <?=$this->erp->formatQuantity($row->quantity);?>
                         </td>
-                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle;" align="right">
+                        <td style="width: 8%;color: #9D192B !important;vertical-align: middle;" align="right" class="size">
                             <?php
                             if($row->real_unit_price==0){echo "Free";}
                             else{
@@ -492,7 +497,7 @@
                             <?php } ?>
                         </td>
                     <?php } ?>
-                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
+                    <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot" id="total">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
 
                     </td>
                     <td align="right" style="color:#9D192B !important; background-color:#ffb3b3; padding: 3px;" class="tfoot">
@@ -517,14 +522,14 @@
                         <tr class="border-foot" style="background-color:#ffb3b3;
 ">
                             <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot">បានបង់ / <?= strtoupper(lang('paid')) ?>
-                                (<?= $default_currency->code; ?>)
+
                             </td>
                             <td align="right" style="color:#9D192B !important; background-color:#ffb3b3;padding: 3px;" class="tfoot"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                         </tr>
                     <?php } ?>
                     <tr class="border-foot">
                         <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold; background-color:#ffb3b3;padding: 3px;" class="tfoot">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
-                            (<?= $default_currency->code; ?>)
+
                         </td>
                         <td align="right" style="color:#9D192B !important; background-color:#ffb3b3;padding: 3px;" class="tfoot"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
                     </tr>
