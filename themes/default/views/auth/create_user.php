@@ -113,7 +113,7 @@
                                     <?php
                                     $bl[] = array();
                                     foreach ($billers as $biller) {
-                                        $bl[$biller->id] = $biller->company != '-' ? $biller->company : $biller->name;
+                                        $bl[$biller->id] = $biller->company ? $biller->company : $biller->name;
                                     }
                                     echo form_dropdown('biller[]', $bl, (isset($_POST['biller']) ? $_POST['biller'] : ''), 'id="biller" class="form-control select" style="width:100%;" multiple="multiple" required="required"');
                                     ?>
