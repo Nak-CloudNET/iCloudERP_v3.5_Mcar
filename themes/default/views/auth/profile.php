@@ -170,10 +170,14 @@
                                                                         <div class="form-group">
                                                                             <?= lang("biller", "biller"); ?>
                                                                             <?php
+
                                                                             $bl = array();
                                                                             foreach ($billers as $biller) {
-                                                                                $bl[$biller->id] = $biller->company != '-' ? $biller->company : $biller->name;
+
+                                                                                $bl[$biller->id] = $biller->company? $biller->company : $biller->name;
+//
                                                                             }
+
                                                                             echo form_dropdown('biller[]', $bl, (isset($_POST['biller']) ? $_POST['biller'] : json_decode($user->biller_id)), 'id="biller" data-placeholder="' . $this->lang->line("select") . ' ' . $this->lang->line("biller") . '" class="form-control select" multiple="multiple" style="width:100%;"');
                                                                             ?>
                                                                         </div>
@@ -451,6 +455,7 @@
 
             $("#biller").select('val', "<?= isset($user->biller) ?>");
             var $biller = $("#biller");
+
             $(window).load(function () {
                 billerChange();
             });
@@ -494,6 +499,7 @@
             function billerChange() {
                 var id = $biller.val();
                 var user_id = $('#user_id').val();
+
                 $("#warehouse").find('option').remove().end().val('');
                 $("#bank_account").find('option').remove().end().val('');
 

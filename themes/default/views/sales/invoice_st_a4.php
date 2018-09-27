@@ -512,10 +512,10 @@
                 <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
                     <?php if($invs->deposit != 0) { ?>
                         <tr class="border-foot">
-                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;">បានកក់ / <?= strtoupper(lang('deposit')) ?>
-                                (<?= $default_currency->code; ?>)
+                            <td colspan="<?= $col; ?>" style="color:#9D192B !important;text-align: right; font-weight: bold;background-color:#ffb3b3 !important;padding-left: 3px;">បានកក់ / <?= strtoupper(lang('deposit')) ?>
+
                             </td>
-                            <td align="right" style="color:#9D192B !important;"><?php echo $this->erp->formatMoney($invs->deposit); ?></td>
+                            <td align="right" style="color:#9D192B !important;background-color:#ffb3b3 !important;padding-right: 3px;"><?php echo $this->erp->formatMoney($invs->deposit); ?></td>
                         </tr>
                     <?php } ?>
                     <?php if($invs->paid != 0) { ?>
